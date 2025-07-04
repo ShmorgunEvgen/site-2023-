@@ -1,0 +1,136 @@
+<!DOCTYPE html> <!-- Задаємо тип документу -->
+<html lang="en"> <!-- Встановлюємо мову документа -->
+<head>
+    <meta charset="UTF-8"> <!-- Встановлюємо кодування символів -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Налаштування масштабування для мобільних пристроїв -->
+    <title>Tic Tac Toe</title> <!-- Заголовок сторінки -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Задаємо шрифт для всього тіла сторінки */
+            text-align: center; /* Вирівнюємо текст по центру */
+        }
+        .board {
+            display: inline-block; /* Встановлюємо властивість inline-block для .board */
+            margin-top: 20px; /* Задаємо зовнішній відступ зверху */
+        }
+        .cell {
+            width: 100px; /* Задаємо ширину клітинок */
+            height: 100px; /* Задаємо висоту клітинок */
+            border: 2px solid black; /* Задаємо товщину та колір меж клітинок */
+            font-size: 60px; /* Задаємо розмір шрифту в клітинках */
+            cursor: pointer; /* Змінюємо вигляд курсору на показник при наведенні на клітинку */
+            float: left; /* Вирівнюємо клітинки вліво */
+        }
+        .row::after {
+            content: ""; /* Додаємо контент для очищення попередніх елементів */
+            display: block; /* Робимо блочним елементом */
+            clear: both; /* Очищаємо float */
+        }
+        ul{
+            float:left;
+        }
+        .ul2{
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="1234.html">Грати проти гравця</a></li>
+        <li><a href="TicTacToeBOT+.html">Грати проти бота</a></li>
+    </ul>
+    <ul class="ul2">
+        <li><a href="rivn.html">Алгебра</a></li>
+		<li><a href="geom.html">Геометрія</a></li>
+		<li><a href="teor.html">Теорія ймовірності</a></li>
+		<li><a href="comb.html">Комбінаторика</a></li>
+		<li><a href="trug.html">Тригонометрія</a></li>
+		<li><a href="vuhmat.html">Вища математика</a></li>
+    </ul>
+    <h1>Tic Tac Toe</h1> <!-- Заголовок гри -->
+    <div class="board" id="board"> <!-- Створюємо ігрове поле -->
+        <div class="row"> <!-- Ряд 1 -->
+            <div class="cell" onclick="placeMark(0, 0)"></div> <!-- Клітинка 1 -->
+            <div class="cell" onclick="placeMark(0, 1)"></div> <!-- Клітинка 2 -->
+            <div class="cell" onclick="placeMark(0, 2)"></div> <!-- Клітинка 3 -->
+        </div>
+        <div class="row"> <!-- Ряд 2 -->
+            <div class="cell" onclick="placeMark(1, 0)"></div> <!-- Клітинка 4 -->
+            <div class="cell" onclick="placeMark(1, 1)"></div> <!-- Клітинка 5 -->
+            <div class="cell" onclick="placeMark(1, 2)"></div> <!-- Клітинка 6 -->
+        </div>
+        <div class="row"> <!-- Ряд 3 -->
+            <div class="cell" onclick="placeMark(2, 0)"></div> <!-- Клітинка 7 -->
+            <div class="cell" onclick="placeMark(2, 1)"></div> <!-- Клітинка 8 -->
+            <div class="cell" onclick="placeMark(2, 2)"></div> <!-- Клітинка 9 -->
+        </div>
+    </div>
+    <p id="turn">Player 1's Turn</p> <!-- Відображення ходу гравців -->
+    <button onclick="resetBoard()">Reset Board</button> <!-- Кнопка скидання поля -->
+
+    <script>
+        let currentPlayer = "X"; // Початковий гравець
+        let board = [ // Початковий стан дошки
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+
+        function placeMark(row, col) { // Функція встановлення знаку в клітинці
+            if (board[row][col] === "") { // Перевірка, чи клітинка вільна
+                board[row][col] = currentPlayer; // Встановлення знаку гравця в клітинці
+                document.getElementById("board").children[row].children[col].innerText = currentPlayer; // Оновлення інтерфейсу
+                if (checkWin()) { // Перевірка на перемогу
+                    alert(currentPlayer + " wins!"); // Повідомлення переможця
+                    resetBoard(); // Скидання поля
+                } else if (checkDraw()) { // Перевірка на нічию
+                    alert("It's a draw!"); // Повідомлення про нічию
+                    resetBoard(); // Скидання поля
+                } else {
+                    currentPlayer = currentPlayer === "X" ? "O" : "X"; // Зміна гравця
+                    document.getElementById("turn").innerText = "Player " + (currentPlayer === "X" ? "1" : "2") + "'s Turn"; // Оновлення ходу
+                }
+            }
+        }
+
+        function checkWin() { // Функція перевірки перемоги
+            // Перевірка на перемогу в рядках, стовпчиках та діагоналях
+            for (let i = 0; i < 3; i++) {
+                if (board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][0] !== "") {
+                    return true; // Перемога в рядку
+                }
+                if (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[0][i] !== "") {
+                    return true;
+                } // Перемога в стовпчику
+            }
+            if ((board[0][0] === board[1][1] && board[1][1] === board[2][2] ||
+                board[0][2] === board[1][1] && board[1][1] === board[2][0]) && board[1][1] !== "") {
+                return true; // Перемога на діагоналі
+            }
+            return false; // Якщо перемоги немає
+        }
+
+        function checkDraw() { // Функція перевірки нічиєї
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === "") {
+                        return false; // Якщо ще є вільні клітинки, то нічия не встановлена
+                    }
+                }
+            }
+            return true; // Якщо всі клітинки заповнені і переможця немає, то нічия
+        }
+
+        function resetBoard() { // Функція скидання поля
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    board[i][j] = ""; // Скидаємо клітинки на пусті значення
+                    document.getElementById("board").children[i].children[j].innerText = ""; // Очищуємо інтерфейс
+                }
+            }
+            currentPlayer = "X"; // Повертаємо хід гравцю X
+            document.getElementById("turn").innerText = "Player 1's Turn"; // Встановлюємо хід гравця 1
+        }
+    </script>
+</body>
+</html>

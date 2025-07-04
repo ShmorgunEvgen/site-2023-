@@ -1,0 +1,151 @@
+/* Стилі для заголовку h1 */
+h1 {
+  font-size: 4em;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  transition: background-color 0.5s ease-in-out;
+}
+
+h1:hover {
+  background-color: #808000;
+}
+
+/* Стилі для навігації */
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin: 0 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  transition: background-color 0.5s ease-in-out;
+}
+
+nav a:hover {
+  background-color: #808000;
+  color: white;
+}
+
+/* Стилі для головного блоку main */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  width: 80%;
+  margin-bottom: 2em;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  transition: background-color 0.5s ease-in-out;
+}
+
+h2:hover {
+  background-color: #808000;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  text-align: justify;
+  padding: 1em;
+  background-color: #eee;
+  border-radius: 0.5em;
+  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+p:hover {
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.5);
+  transform: translateY(-0.25em);
+}
+
+/* Стилі для футера */
+footer {
+  background-color: #333;
+  color: bleack;
+  padding: 1em;
+  text-align: center;
+}
+form {
+  width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+input[type="date"] {
+  width: 50%;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: green;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: green;
+  margin-bottom: 10px;
+}

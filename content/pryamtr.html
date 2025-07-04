@@ -1,0 +1,244 @@
+<!doctype html> 
+<html> 
+	<head> 
+		<meta charset="utf-8"> 
+		<title>Онлайн математика</title>
+		<link href="style.css" rel="stylesheet">
+		<script type="text/javascript" src="main.js"></script>
+		<style>
+			nav{
+				display:flex;
+			}
+			.ul1{
+				display:flex;
+				margin-top:40px;
+			}
+			.li1{
+				width:100px;
+				margin: 10px;
+				background-color:grey;
+				text-align:center;
+				list-style-type: none;
+				transition: border 0.5s ease-out;
+			}
+			li{
+				vertical-align:middle;
+				padding-top:10px;
+				border-radius:10px;
+			}
+			.li1:hover{
+				background-color:red;
+				border:2px solid white;
+
+			}
+			a{
+				color:white;
+			}
+			header{
+				background-image:url(Cwgf.gif);
+			}
+			main{
+				background-color:white;
+			}
+			img{
+				margin-left:100px;
+				margin-top:150px;
+			}
+			.container1 input{
+				width:50px;
+				position:absolute;
+			}
+			.input1{
+				right:68%;
+				top:32%;
+			}
+			.input2{
+				top:57%;
+			}
+			.input3{
+				top:44%;
+				right:60%;
+			}
+			.input4{
+				top:44%;
+				right:70%;
+			}
+			.input5{
+				top:57%;
+				right:62%;
+			}
+			.values{
+				margin-top:100px;
+				display:none;
+				padding: 20px;
+				width:300px;
+				border: 1px solid black;
+				background-color: whitesmoke;
+			}
+			.res1{
+				font-size: 24px;
+			}
+			.rozv1{
+				margin-top:50px;
+				font-size: 16px;
+			}
+			.abutton{
+				width:50px;
+				height:20px;
+			}
+			.buttondiv{
+				margin-top: 100px;
+				margin-right:100px;
+				position:fixed;
+			}
+			</style>
+	</head> 
+	<body>
+		<header>
+			<nav class="container f1">
+				<ul class="ul1">
+					<li class="li1"><a href="rivn.html">Алгебра</a></li>
+					<li class="li1"><a href="geom.html">Геометрія</a></li>
+					<li class="li1"><a href="teor.html">Теорія ймовірності</a></li>
+					<li class="li1"><a href="comb.html">Комбінаторика</a></li>
+					<li class="li1"><a href="trug.html">Тригонометрія</a></li>
+					<li class="li1"><a href="vuhmat.html">Вища математика</a></li>
+					<li class="li1"><a href="1234.html">Ігри</a></li>
+					<li class="li1"><a href="physics.html">Фізика</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<div class="container1">
+			<img src="ABhipTg.png"></img>
+			<input type="text" id="i1" class="input1"></input>
+			<input type="text" id="i2" class="input2"></input>
+			<input type="text" id="i3" class="input3"></input>
+			<input type="text" id="i4" class="input4"></input>
+			<input type="text" id="i5" class="input5"></input>
+		    </div>
+
+			<div class="values" id="values1">
+			<div id="res" class="res1"></div>
+			<div id="rozv" class="rozv1"></div>
+
+			</div>
+			<div class="buttondiv">
+			<button id="button1" onclick="evaluate1()" class="abutton">Обчислити</button>
+			</div>
+			
+			    <aside>
+				    <div class="widget">
+						<div class="calculator">
+							<input type="text" id="display" >
+							<div class="buttons">
+								<button onclick="appendNumber('1')">1</button>
+								<button onclick="appendNumber('2')">2</button>
+								<button onclick="appendNumber('3')">3</button>
+								<button onclick="appendOperator('+')">+</button>
+								<button onclick="clearDisplay()">C</button>
+								<br>
+								<button onclick="appendNumber('4')">4</button>
+								<button onclick="appendNumber('5')">5</button>
+								<button onclick="appendNumber('6')">6</button>
+								<button onclick="appendOperator('-')">-</button>
+								<button onclick="deleteLast()">del</button>
+								<br>
+								<button onclick="appendNumber('7')">7</button>
+								<button onclick="appendNumber('8')">8</button>
+								<button onclick="appendNumber('9')">9</button>
+								<button onclick="appendOperator('*')">*</button>
+								<button onclick="deleteLast1()">-/+</button>
+								<br>
+								<button onclick="appendNumber('0')">0</button>
+								<button onclick="appendNumber('(')">(</button> <!-- Додали кнопку для видалення останнього елемента -->
+								<button onclick="appendNumber(')')">)</button>
+								<button onclick="appendOperator('/')">/</button>
+								<button onclick="calculate()">=</button>
+								<br>
+								<button onclick="appendNumber('0')">x<sup>2</sup></button>
+								<button onclick="deleteLast1()">√</button> <!-- Додали кнопку для видалення останнього елемента -->
+								<button onclick="clearDisplay1()">1/x</button>
+								<button onclick="appendOperator('/')">%</button>
+								<button onclick="appendNumber('.')">.</button>
+								
+							</div>
+						</div>
+					</div>
+					<div class="widget">
+						<ul>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+							<li>6</li>
+						</ul>
+					</div>
+				</aside>
+			</div> <!-- конец div class="container"-->
+		</main>
+		<footer>
+		
+		</footer>
+
+	</body>
+	<script>
+		function evaluate1(){
+		var a = document.getElementById("i4").value;
+		var b = document.getElementById("i5").value;
+		var c = document.getElementById("i3").value;
+		var A = document.getElementById("i2").value;
+		var B = document.getElementById("i1").value;
+
+		if(checkValues(c,A)){
+			document.getElementById("i1").value = 90-A;
+			document.getElementById("i5").value = (c * Math.cos(A*(Math.PI/180))).toFixed(2);
+			document.getElementById("i4").value = (c * Math.sin(A*(Math.PI/180))).toFixed(2);
+			document.getElementById('res').innerHTML = `Дано: АВ = ${c}, A = ${A} `;
+			document.getElementById('rozv').innerHTML = `Розв'язок:`+"<br>"+` B = 90 - A = ${document.getElementById("i1").value}`+"<br>"+`AC = AB * cos(A) = ${document.getElementById("i5").value}`+"<br>"+`BC = AB * sin(A) = ${document.getElementById("i4").value}`;
+		}
+		else if(checkValues(a,A)){
+			document.getElementById("i1").value = 90-A;
+			document.getElementById("i5").value = (a/Math.tan(A*(Math.PI/180))).toFixed(2);
+			document.getElementById("i3").value = (a/Math.sin(A*(Math.PI/180))).toFixed(2);
+			document.getElementById('res').innerHTML = `Дано: BC = ${a}, A = ${A} `;
+			document.getElementById('rozv').innerHTML = `Розв'язок:`+"<br>"+` B = 90 - A = ${document.getElementById("i1").value}`+"<br>"+`AB = BC/sin(A) = ${document.getElementById("i3").value}`+"<br>"+`AC = BC/tg(A) = ${document.getElementById("i5").value}`;
+		}
+		else if(checkValues(a,B)){
+			document.getElementById("i2").value = 90-B;
+			document.getElementById("i3").value = (a/Math.cos(B*(Math.PI/180))).toFixed(2);
+			document.getElementById("i5").value = (a*Math.tan(B*(Math.PI/180))).toFixed(2);
+			document.getElementById('res').innerHTML = `Дано: АВ = ${c}, B = ${B} `;
+			document.getElementById('rozv').innerHTML = `Розв'язок:`+"<br>"+` B = 90 - A = ${document.getElementById("i2").value}`+"<br>"+`AB = BC / cos(A) = ${document.getElementById("i3").value}`+"<br>"+`AC = BC * tg(B) = ${document.getElementById("i5").value}`;
+		}
+		else if(checkValues(b,A)){
+			document.getElementById("i1").value = 90-A;
+			document.getElementById("i3").value = (b/Math.cos(A*(Math.PI/180))).toFixed(2);
+			document.getElementById("i4").value = (b*Math.tan(A*(Math.PI/180))).toFixed(2);
+			document.getElementById('res').innerHTML = `Дано: АВ = ${c}, A = ${A} `;
+			document.getElementById('rozv').innerHTML = `Розв'язок:`+"<br>"+` B = 90 - A = ${document.getElementById("i1").value}`+"<br>"+`AB = AC / cos(A) = ${document.getElementById("i5").value}`+"<br>"+`BC = AC * tg(A) = ${document.getElementById("i4").value}`;
+		}
+		else if(checkValues(a,c)){
+			document.getElementById("i5").value = (Math.sqrt(c**2-a**2)).toFixed(2);
+			document.getElementById("i2").value = (Math.asin(a/c)*(180/Math.PI)).toFixed(2);
+			document.getElementById("i1").value = 90 - document.getElementById("i2").value;
+			document.getElementById('res').innerHTML = `Дано: АВ = ${c}, A = ${A} `;
+			document.getElementById('rozv').innerHTML = `Розв'язок:`+"<br>"+` A = arcsin(a/c) = ${document.getElementById("i2").value}`+"<br>"+`AC = √(AB^2 - BC^2) = ${document.getElementById("i5").value}`+"<br>"+`B = 90 - A = ${document.getElementById("i1").value}`;
+		}
+		else if(checkValues(a,b)){
+			document.getElementById("i3").value = (Math.sqrt(a**2+b**2)).toFixed(2);
+			document.getElementById("i2").value = (Math.atan(a/b)*(180/Math.PI)).toFixed(2);
+			document.getElementById("i1").value = 90 - document.getElementById("i2").value;
+			document.getElementById('res').innerHTML = `Дано: BC = ${a}, AC = ${b} `;
+			document.getElementById('rozv').innerHTML = `Розв'язок:`+"<br>"+` A = arctg(a/b) = ${document.getElementById("i2").value}`+"<br>"+`AB = √(BC^2 + AC^2) = ${document.getElementById("i3").value}`+"<br>"+`B = 90 - A = ${document.getElementById("i1").value}`;
+		}
+		var block = document.getElementById("values1");
+		block.style.display = "inline-block";
+		}
+
+		function checkValues(val1, val2) {
+                return val1 !== "" && val2 !== "";
+            }
+	</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Освіта</title>
+	<link rel="stylesheet" href="style6.css">
+
+</head>
+<body>
+	<header>
+		<h1>Освіта</h1>
+	</header>
+
+	<nav>
+		<ul>
+				<li><a href="index.html">Головна</a></li>
+				<li><a href="content/rivn.html">Математика</a></li>
+				<li><a href="content/rivn.html">Алгебра</a></li>
+				<li><a href="content/comb.html">Комбінаторика</a></li>
+				<li><a href="content/teor.html">Теорія ймовірності</a></li>
+				<li><a href="content/geometry.html">Геометрія</a></li>
+				<li><a href="content/trugonometry.html">Тригонометрія</a></li>
+				<li><a href="content/physics.html">Фізика</a></li>
+				<li><a href="content/gat.html">Чат</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<section>
+			<h2>Ласкаво просимо!</h2>
+			<p>Цей сайт призначений для надання допомоги вивченню математики, фізики та геометрії. 
+			На сайті ви можете знайти інформацію про ці теми, використовуючи різноманітні веб-додатки та 
+			інтерактивні графіки функцій. Також можна вивчити формули та теорією.</p>
+</main>
+<form action="submit.php" method="post">
+  <label for="name">Ім'я:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <label for="email">Електронна пошта:</label>
+  <input type="email" id="email" name="email" required>
+  
+  <label for="password">Пароль:</label>
+  <input type="password" id="password" name="password" required>
+  
+  <label for="confirm_password">Підтвердити пароль:</label>
+  <input type="password" id="confirm_password" name="confirm_password" required>
+  
+  <label for="phone">Номер телефону:</label>
+  <input type="tel" id="phone" name="phone">
+  
+  <label for="gender">Стать:</label>
+  <select id="gender" name="gender">
+    <option value="male">Чоловік</option>
+    <option value="female">Жінка</option>
+    <option value="other">Інше</option>
+  </select>
+  
+  <label for="dob">Дата народження:</label>
+  <input type="date" id="dob" name="dob">
+  <br><br>
+  <button type="submit">Зареєструватися</button>
+</form>
+
+<footer>
+	<p>&copy; 2023 Всі права захищені.</p>
+</footer>
+</body>
+</html>

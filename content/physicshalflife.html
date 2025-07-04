@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>123</title>
+    <style>
+        body{
+            display:inline-block;
+        }
+        .table{
+            position:relative;
+        }
+        .elname{
+            position:absolute;
+            top:200px;
+            left:100px;
+            font-size:24px;
+        }
+        .elsymbol{
+            position:absolute;
+            top:330px;
+            left:90px;
+            font-size:36px;
+        }
+        .elnuclon{
+            position:absolute;
+            top:350px;
+            left:150px;
+            font-size:36px;
+        }
+        .drib{
+            position:absolute;
+            top:350px;
+            left:175px;
+            font-size:12px;
+        }
+        .drib1{
+            position:absolute;
+            top:370px;
+            left:175px;
+            font-size:12px;
+        }
+        .elproton{
+            position:absolute;
+            top:300px;
+            left:150px;
+            font-size:36px;
+        }
+        .elreaction{
+            position:absolute;
+            top:290px;
+            left:150px;
+            font-size:50px;
+        }
+        .elreaction1{
+            position:absolute;
+            top:200px;
+            left:230px;
+            font-size:24px;
+        }
+        .tinput{
+            width:30px;
+            height:10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="rivn.html">Алгебра</a></li>
+            <li><a href="geom.html">Геометрія</a></li>
+            <li><a href="teor.html">Теорія ймовірності</a></li>
+            <li><a href="comb.html">Комбінаторика</a></li>
+            <li><a href="trug.html">Тригонометрія</a></li>
+            <li><a href="vuhmat.html">Вища математика</a></li>
+            <li><a href="1234.html">Ігри</a></li>
+            <li><a href="physics.html">Фізика</a></li>
+        </ul>
+        </header>
+<h1>Період напіврозпаду радіонуклідів</h1>
+<div>
+<p>A=</p><input size="2" id="Ainput" type="text"></input>
+</div>
+<p>N=</p><input size="2" id="Ninput" type="text"></input>
+<div>
+<p>L=</p><input size="2" id="Linput" type="text"></input>
+</div>
+<input type="button" onclick="findunknown()">Обчислити невідоме</input>
+<input type="button" onclick="findN()">Обчислити N</input>
+
+<div id="symbol" class="elsymbol">N = </div>
+<div id="nuclon" class="elnuclon">2</div>
+<div id="drib123" class="drib"><input size="2" id="T" class ="tinput" type="text">T</div>
+<div id="drib123" class="drib1"><input size="2" id="t" type="text" class="tinput">t</div>
+<div id="proton" class="elproton"><input size="2" id="N0" type="text">N0</div>
+<div id="reaction" class="elreaction">_</div>
+</body>
+<script>
+    function findunknown(){
+        if(document.getElementById("Ainput").value==''){
+            document.getElementById("Ainput").value=document.getElementById("Ninput").value*document.getElementById("Linput").value;
+        }
+        else if(document.getElementById("Ninput").value==''){
+            document.getElementById("Ninput").value=document.getElementById("Ainput").value/document.getElementById("Linput").value;
+        }
+        else if(document.getElementById("Linput").value==''){
+            document.getElementById("Linput").value=document.getElementById("Ainput").value/document.getElementById("Ninput").value;
+        }
+    }
+    function findN(){
+        let tT=parseInt(document.getElementById("T").value/document.getElementById("t").value);
+        document.getElementById("Ninput").value=document.getElementById("N0").value/Math.pow(2,tT);
+    }
+</script>
+</html>

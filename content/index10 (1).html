@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кут та косинус кута між векторами</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Кут та косинус кута між векторами</h2>
+    <label for="vector1">Введіть координати першого вектора (розділені комами):</label>
+    <input type="text" id="vector1" placeholder="напр., 1,2,3">
+    <label for="vector2">Введіть координати другого вектора (розділені комами):</label>
+    <input type="text" id="vector2" placeholder="напр., 4,5,6">
+    <button onclick="calculateAngle()">Порахувати</button>
+    <p id="result"></p>
+</div>
+
+<script>
+    function calculateAngle() {
+        var vector1Input = document.getElementById('vector1').value;
+        var vector2Input = document.getElementById('vector2').value;
+        var vector1 = vector1Input.split(',').map(parseFloat);
+        var vector2 = vector2Input.split(',').map(parseFloat);
+
+        // Перевірка на введення коректних значень
+        if (vector1.length !== 3 || vector2.length !== 3 || vector1.some(isNaN) || vector2.some(isNaN)) {
+            document.getElementById('result').textContent = 'Будь ласка, введіть коректні дані для обох векторів.';
+            return;
+        }
+
+        // Обчислення скалярного добутку векторів
+        var dotProduct = vector1[0] * vector2[0] + vector1[1] * vector2[1] + vector1[2] * vector2[2];
+
+        // Обчислення довжин векторів
+        var magnitude1 = Math.sqrt(vector1[0] * vector1[0] + vector1[1] * vector1[1] + vector1[2] * vector1[2]);
+        var magnitude2 = Math.sqrt(vector2[0] * vector2[0] + vector2[1] * vector2[1] + vector2[2] * vector2[2]);
+
+        // Обчислення косинуса кута між векторами
+        var cosineAngle = dotProduct / (magnitude1 * magnitude2);
+
+        // Обчислення кута в радіанах та перетворення його в градуси
+        var angleInRadians = Math.acos(cosineAngle);
+        var angleInDegrees = angleInRadians * (180 / Math.PI);
+
+        document.getElementById('result').innerHTML = 'Кут між векторами: ' + angleInDegrees.toFixed(2) + ' градусів <br> Косинус кута: ' + cosineAngle.toFixed(2);
+    }
+</script>
+</body>
+</html>

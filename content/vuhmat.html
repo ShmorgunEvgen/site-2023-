@@ -1,0 +1,114 @@
+<!doctype html> 
+<html> 
+	<head> 
+		<meta charset="utf-8"> 
+		<title>Онлайн математика</title>
+		<link href="style.css" rel="stylesheet">
+		<script type="text/javascript" src="main.js"></script>
+		<style>
+			nav{
+				display:flex;
+			}
+			.ul1{
+				display:flex;
+				margin-top:40px;
+			}
+			.li1{
+				width:100px;
+				margin: 10px;
+				background-color:grey;
+				text-align:center;
+				list-style-type: none;
+				transition: border 0.5s ease-out;
+			}
+			li{
+				vertical-align:middle;
+				padding-top:10px;
+				border-radius:10px;
+			}
+			.li1:hover{
+				background-color:red;
+				border:2px solid white;
+
+			}
+			a{
+				color:white;
+			}
+			header{
+				background-image:url(Cwgf.gif);
+			}
+			</style>
+	</head> 
+	<body>
+		<header>
+			<nav class="container f1">
+				<ul class="ul1">
+					<li class="li1"><a href="rivn.html">Алгебра</a></li>
+					<li class="li1"><a href="geom.html">Геометрія</a></li>
+					<li class="li1"><a href="teor.html">Теорія ймовірності</a></li>
+					<li class="li1"><a href="comb.html">Комбінаторика</a></li>
+					<li class="li1"><a href="trug.html">Тригонометрія</a></li>
+					<li class="li1"><a href="vuhmat.html">Вища математика</a></li>
+					<li class="li1"><a href="1234.html">Ігри</a></li>
+					<li class="li1"><a href="physics.html">Фізика</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			    <aside>
+				    <div class="widget">
+						<div class="calculator">
+							<input type="text" id="display" >
+							<div class="buttons">
+								<button onclick="appendNumber('1')">1</button>
+								<button onclick="appendNumber('2')">2</button>
+								<button onclick="appendNumber('3')">3</button>
+								<button onclick="appendOperator('+')">+</button>
+								<button onclick="clearDisplay()">C</button>
+								<br>
+								<button onclick="appendNumber('4')">4</button>
+								<button onclick="appendNumber('5')">5</button>
+								<button onclick="appendNumber('6')">6</button>
+								<button onclick="appendOperator('-')">-</button>
+								<button onclick="deleteLast()">del</button>
+								<br>
+								<button onclick="appendNumber('7')">7</button>
+								<button onclick="appendNumber('8')">8</button>
+								<button onclick="appendNumber('9')">9</button>
+								<button onclick="appendOperator('*')">*</button>
+								<button onclick="deleteLast1()">-/+</button>
+								<br>
+								<button onclick="appendNumber('0')">0</button>
+								<button onclick="appendNumber('(')">(</button> <!-- Додали кнопку для видалення останнього елемента -->
+								<button onclick="appendNumber(')')">)</button>
+								<button onclick="appendOperator('/')">/</button>
+								<button onclick="calculate()">=</button>
+								<br>
+								<button onclick="appendNumber('0')">x<sup>2</sup></button>
+								<button onclick="deleteLast1()">√</button> <!-- Додали кнопку для видалення останнього елемента -->
+								<button onclick="clearDisplay1()">1/x</button>
+								<button onclick="appendOperator('/')">%</button>
+								<button onclick="appendNumber('.')">.</button>
+								
+							</div>
+						</div>
+					</div>
+					<div class="widget">
+						<ul>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+							<li>6</li>
+						</ul>
+					</div>
+				</aside>
+			</div> <!-- конец div class="container"-->
+		</main>
+		<footer>
+		
+		</footer>
+
+	</body>
+</html>

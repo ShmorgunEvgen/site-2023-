@@ -1,0 +1,24 @@
+<label>Калькулятор Відсотків</label>
+					<li>
+						<ul><input type="radio" name="vid" value="1">Взяти відсоток від числа</input></ul>
+						<ul><input type="radio" name="vid" value="2">Додати відсоток до числа</input></ul>
+						<ul><input type="radio" name="vid" value="3">Відняти відсоток від числа</input></ul>
+						<ul><input type="radio" name="vid" value="4" onchange="vid2()">На скільки відсотків перше число більше другого</input></ul>
+					</li>
+					Число<input type="text" class="a124"></input> Відсоток<input type="text" class="a125" id="vidsotok"></input>
+					<button onclick="evalv()">Обчислити</button>
+
+java:
+
+function evalv(){
+            var a=getElementsbyName("vid").checked.value;
+            switch(a){
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+            }
+        }
+        function vid2(){
+            
+        }

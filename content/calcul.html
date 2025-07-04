@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        .calculator {
+            width: 250px;
+            margin: 50px auto;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .buttons button {
+            width: 30px;
+            height: 30px;
+            margin: 3px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #efefef;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" >
+        <div class="buttons">
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="appendOperator('+')">+</button>
+			<button onclick="clearDisplay()">C</button>
+            <br>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="appendOperator('-')">-</button>
+			<button onclick="deleteLast()">del</button>
+            <br>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="appendOperator('*')">*</button>
+			<button onclick="deleteLast1()">-/+</button>
+            <br>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('(')">(</button> <!-- Додали кнопку для видалення останнього елемента -->
+            <button onclick="appendNumber(')')">)</button>
+			<button onclick="appendOperator('/')">/</button>
+            <button onclick="calculate()">=</button>
+			<br>
+            <button onclick="appendNumber('0')">x<sup>2</sup></button>
+            <button onclick="deleteLast1()">√</button> <!-- Додали кнопку для видалення останнього елемента -->
+            <button onclick="clearDisplay1()">1/x</button>
+			<button onclick="appendOperator('/')">%</button>
+            <button onclick="appendNumber('.')">.</button>
+            
+        </div>
+    </div>
+    <script>
+        let displayValue = '';
+
+        function appendNumber(number) {
+            displayValue += number;
+            document.getElementById('display').value = displayValue;
+        }
+
+        function appendOperator(operator) {
+            if (displayValue !== '' && !isNaN(displayValue[displayValue.length - 1])) {
+                displayValue += operator;
+                document.getElementById('display').value = displayValue;
+            }
+        }
+
+        function clearDisplay() {
+            displayValue = '';
+            document.getElementById('display').value = displayValue;
+        }
+
+        function deleteLast() { // Функція для видалення останнього елемента
+            displayValue = displayValue.slice(0, -1);
+            document.getElementById('display').value = displayValue;
+        }
+
+        function calculate() {
+            try {
+                displayValue = eval(displayValue);
+                document.getElementById('display').value = displayValue;
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
